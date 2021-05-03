@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>session</title>
+	<style type="text/css">
+		select{
+		background-color: #bbdbfa;
+		color: black;
+		max-width: 50%;
+		font-size: 25px;
+		}
+		img{
+		border-radius: 15px;
+		border: 3px solid #789;
+
+		}
+		.header{
+		position: fixed;
+		padding: 8px;
+		top: 0px;
+		font-size: 25px;
+		width: 100%;
+		left: 0px;
+		height: 40px;
+		color: black;
+		text-align: center;
+		background-image: linear-gradient(to top, #769abe, #bbdbfa)
+		}
+		.all{
+		border: 5px double #789;
+		border-radius: 15px;
+		background-color: #dbedfe;
+		color: #111;
+		padding: 5px;
+		margin-top: 70px;
+		font-size: 18px;
+		padding-left: 3%;
+		padding-right: 3%;
+		}
+		.ticketheader{
+		width: 90%;
+		
+		font-size: 22px;
+		padding: 10px;
+		padding-top: 3px;
+		text-align: center;
+		border-bottom: 2px solid #789;
+		background-color: #dbedfe;
+		padding-left: 5%;
+		padding-right: 5%;
+		}
+
+	</style>
+	<script type="text/javascript">
+		let massive=[["0:геометрия", "..."],
+		["1геометрия: теорема о смежных углах","доказательство"],
+		["2геометрия: теорема о смежных углах","доказательство"],
+		["3геометрия: теорема о смежных углах","доказательство"],
+		["4геометрия: теорема о смежных углах","доказательство"],
+		["5геометрия: теорема о смежных углах","доказательство"],
+		["6геометрия: теорема о смежных углах","доказательство"],
+		["7геометрия: теорема о смежных углах","доказательство"],
+		["8геометрия: теорема о смежных углах","доказательство"],
+		["9геометрия: теорема о смежных углах","доказательство"],
+		["10геометрия: теорема о смежных углах","доказательство"],
+		["11геометрия: теорема о смежных углах","доказательство"],
+		["12геометрия: теорема о смежных углах","доказательство"],
+		["13геометрия: теорема о смежных углах","доказательство"],
+		["14геометрия: теорема о смежных углах","доказательство"],
+		["15геометрия: теорема о смежных углах","доказательство"],
+		["16геометрия: теорема о смежных углах","доказательство"],
+		["17геометрия: теорема о смежных углах","доказательство"],
+		["18геометрия: теорема о смежных углах","доказательство"],
+		["19геометрия: теорема о смежных углах","доказательство"],
+		["20геометрия: теорема о смежных углах","доказательство"],
+		["21геометрия: теорема о смежных углах","доказательство"],
+		["22геометрия: теорема о смежных углах","доказательство"],
+		["23геометрия: теорема о смежных углах","доказательство"],
+		["24геометрия: теорема о смежных углах","доказательство"],
+		["0алгебра: все билеты","1:канонический вид многочлена....."],
+		["26геометрия: теорема о смежных углах","доказательство"],
+		["27геометрия: теорема о смежных углах","доказательство"],
+		]
+		
+		function changeticket() {
+			thiss=document.getElementById("select").value;
+			changethis=`<div class="ticketheader">${massive[thiss][0]}</div><p>${massive[thiss][1]}</p>`;
+
+			document.getElementById("all").innerHTML = changethis;
+		}
+	</script>
+</head>
+<body>
+	<div class="header">выберите билет
+		<select size="1" id="select" onchange="changeticket()">
+			<option value="0">все билеты по геометрии</option>
+			<option selected value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">2</option>
+			<option value="4">2</option>
+			<option value="5">2</option>
+			<option value="6">2</option>
+			<option value="7">2</option>
+			<option value="8">2</option>
+			<option value="9">2</option>
+			<option value="10">2</option>
+			<option value="11">2</option>
+			<option value="12">2</option>
+			<option value="13">2</option>
+			<option value="14">2</option>
+			<option value="15">2</option>
+			<option value="16">2</option>
+			<option value="17">2</option>
+			<option value="18">2</option>
+			<option value="19">2</option>
+			<option value="20">2</option>
+			<option value="21">2</option>
+			<option value="22">2</option>
+			<option value="23">2</option>
+			<option value="24">2</option>
+			<option value="25">все билеты по алгебре</option>
+			<option value="26">2</option>
+			<option value="27">2</option>
+			<option value="28">2</option>
+			<option value="29">2</option>
+		</select>
+	</div>
+	<div class="all" id="all"><div class="ticketheader">привет!!!</div>
+		<p>сначала выбери билет</p>
+	</div>
+</body>
+</html>
