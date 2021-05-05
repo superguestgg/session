@@ -43,6 +43,15 @@
 		border-radius: 15px;
 		border: 3px solid black;
 		}
+		.end{
+		border: 3px solid black;
+		border-radius: 5px;
+		width: 80%;
+		height: 50%;
+		overflow-y: scroll;
+		margin-left: 10px;
+		margin-top: 10px;
+		}
 		.getticket{
 		width: 60%;
 		border: 5px double #789;
@@ -100,7 +109,9 @@
 		<input type="radio" id="v1" value="the" name="input">теорема<br>
 		<input type="radio" id="v2" value="img" name="input">картинка<br>
 		<div class="makerbutton" onclick="makeelement()">создать элемент</div>
+		<div class="end" id="end"></div>
 	</p></div>
+
 
 
 	<div class="all"><h2> название билета</h2><input type="text" id="name"></div>
@@ -124,9 +135,9 @@
 			}
 			newelement = document.createElement("p");
 			if (selectedvariant == 0) {
-				newelement.innerHTML = "<div class='definition' id='"+n+"'>definition<textarea class='forbiginput'id='text"+n+"'><b>теорема</b><br></textarea></div>"
+				newelement.innerHTML = "<div class='definition' id='"+n+"'>definition<textarea class='forbiginput'id='text"+n+"'><<i></i>b>теорема<<i></i>/b><<i></i>br></textarea></div>"
 			} else if (selectedvariant == 1) {
-				newelement.innerHTML = "<div class='theorema' id='"+n+"'>theorema<textarea class='forbiginput' id='text"+n+"'><b>место для названия</b><br></textarea></div>"
+				newelement.innerHTML = "<div class='theorema' id='"+n+"'>theorema<textarea class='forbiginput' id='text"+n+"'><<i></i>b>место для названия<<i></i>/b><<i></i>br></textarea></div>"
 			} else if (selectedvariant == 2) {
 				newelement.innerHTML = "<div class='image' id='"+n+"'>image||please,write a link for image<textarea class='forbiginput' id='text"+n+"'></textarea></div>"
 			}
@@ -141,14 +152,14 @@
 			for (let i = 1; i<n; i++) {
 				thiss = document.getElementById(i);
 				if (thiss.className == "definition" || thiss.className == "theorema") {
-					ticket = ticket + "<div class='definition'>"+ document.getElementById(`text${i}`).value+"</div>";
+					ticket = ticket + "<<i></i>div class='definition'>"+ document.getElementById(`text${i}`).value+"<<i></i>/div>";
 			
 				} else if (thiss.className == "image") {
-					ticket = ticket + "<img class='big' src='"+ document.getElementById(`text${i}`).value+"'>";
+					ticket = ticket + "<<i></i>img class='big' src='"+ document.getElementById(`text${i}`).value+"'>";
 			
 				}
 			}
-			alert(ticket);
+			document.getElementById("end").innerHTML = ticket;
 		}
 	</script>
 </body>
