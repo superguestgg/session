@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		.all{
+		border: 5px double #789;
+		border-radius: 15px;
+		background-color: #dbedfe;
+		color: #111;
+		padding: 5px;
+		margin-top: 20px;
+		font-size: 18px;
+		padding-left: 3%;
+		padding-right: 3%;
+		width: 60%;
+		}
+		h2{
+		text-align: center;
+		}
+
+		.menuadd{
+		width: 30%;
+		right: 0px;
+		background-image: linear-gradient(to top left, #ddd, #ccc);
+		border-left: 3px solid #789;
+		color: #123;
+		position: fixed;
+		top: 0px;
+		height: 100%;
+		padding-left: 10px
+		}
+		.makerbutton{
+		width: 80%;
+		margin-left: 5%;
+		padding: 10px;
+		background-color: #ace;
+		border-radius: 15px;
+		border: 3px solid black;
+		}
+		.getticket{
+		width: 60%;
+		border: 5px double #789;
+		border-radius: 15px;
+		background-color: #dbedfe;
+		color: #111;
+		padding: 5px;
+		margin-top: 20px;
+		font-size: 18px;
+		padding-left: 3%;
+		padding-right: 3%;
+		}
+		.definition{
+		width: 90%;
+		border-radius: 0px 100px 100px 0px;
+		border: 2px solid #222;
+		background-color: green;
+		padding: 5px;
+		}
+		.image{
+		border-radius: 0px 100px 100px 0px;
+		border: 2px solid #222;
+		width: 90%;
+		background-color: red;
+		padding: 5px;
+		}
+		.theorema{
+		width: 90%;
+		border-radius: 0px 100px 100px 0px;
+		border: 2px solid #222;
+		background-color: blue;
+		padding: 5px;
+		}
+	</style>
+	<title>makingticket</title>
+</head>
+<body>
+	<div class="menuadd"><h2>меню создания элементов</h2><p><br>
+		<input type="radio" id="v0" value="def" name="input">определение<br>
+		<input type="radio" id="v1" value="the" name="input">теорема<br>
+		<input type="radio" id="v2" value="img" name="input">картинка<br>
+		<div class="makerbutton" onclick="makeelement()">создать элемент</div>
+	</p></div>
+
+
+	<div class="all"><h2> название билета</h2><input type="text" id="name"></div>
+
+	<div class="all" id="all"></div>
+	<div class="getticket" onclick="generateticket()">сгенерировать сайт</div>
+
+
+	<script type="text/javascript">
+		let all = "";
+		let selectedvariant = 1;
+		let newelement = "";
+		let n = 1;
+		function makeelement() {
+
+			for (let j = 0; j <= 2; j++) {
+				if (document.getElementById(`v${j}`).checked) {
+					selectedvariant = j;
+					break;
+				}
+			}
+			newelement = document.createElement("p");
+			if (selectedvariant == 0) {
+				newelement.innerHTML = "<div class='definition' id='"+n+"'>definition<input type='text' id='text"+n+"' width='90%'></div>"
+			} else if (selectedvariant == 1) {
+				newelement.innerHTML = "<div class='theorema' id='"+n+"'>theorema<input type='text' id='text"+n+"' width='90%'></div>"
+			} else if (selectedvariant == 2) {
+				newelement.innerHTML = "<div class='image' id='"+n+"'>image||please,write a link for image<input type='text' id='text"+n+"'></div>"
+			}
+			document.getElementById("all").append(newelement);
+			n++;
+		}
+		let ticket = "";
+		function generateticket() {
+			ticket = "";
+			let thiss="";
+			for (let i = 1; i<n; i++) {
+				thiss = document.getElementById(i);
+				if (thiss.className == "definition" || thiss.className == "theorema") {
+					ticket = ticket + "<div class='definition'>"+ document.getElementById(`text${i}`).value+"</div>";
+			
+				} else if (thiss.className == "image") {
+					ticket = ticket + "<img class='big' src='"+ document.getElementById(`text${i}`).value+"'>";
+			
+				}
+			}
+			alert(ticket);
+		}
+	</script>
+</body>
+</html>
