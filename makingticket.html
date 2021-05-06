@@ -46,11 +46,12 @@
 		.end{
 		border: 3px solid black;
 		border-radius: 5px;
-		width: 80%;
+		width: 90%;
 		height: 50%;
 		overflow-y: scroll;
 		margin-left: 10px;
 		margin-top: 10px;
+		background-color: #fff;
 		}
 		.getticket{
 		width: 60%;
@@ -77,7 +78,7 @@
 		padding-left: 3%;
 		padding-right: 3%;
 		box-shadow: 0 0 10px #000;
-		transition: 2s linear;
+		transition: 0.3s ease-out;
 		}
 		.definition{
 		width: 90%;
@@ -106,7 +107,7 @@
 <body>
 	<div class="menuadd"><h2>меню создания элементов</h2><p><br>
 		<input type="radio" id="v0" value="def" name="input">определение<br>
-		<input type="radio" id="v1" value="the" name="input">теорема<br>
+		<input type="radio" id="v1" value="the" name="input" checked>теорема<br>
 		<input type="radio" id="v2" value="img" name="input">картинка<br>
 		<div class="makerbutton" onclick="makeelement()">создать элемент</div>
 		<div class="end" id="end"></div>
@@ -135,31 +136,110 @@
 			}
 			newelement = document.createElement("p");
 			if (selectedvariant == 0) {
-				newelement.innerHTML = "<div class='definition' id='"+n+"'>definition<textarea class='forbiginput'id='text"+n+"'><<i></i>b>теорема<<i></i>/b><<i></i>br></textarea></div>"
+				newelement.innerHTML = "<div class='definition' id='"+n+"'>definition<textarea class='forbiginput'id='text"+n+"'>определение</textarea></div>"
 			} else if (selectedvariant == 1) {
-				newelement.innerHTML = "<div class='theorema' id='"+n+"'>theorema<textarea class='forbiginput' id='text"+n+"'><<i></i>b>место для названия<<i></i>/b><<i></i>br></textarea></div>"
+				newelement.innerHTML = "<div class='theorema' id='"+n+"'>theorema<textarea class='forbiginput' id='name"+n+"'>место для названия</textarea> <textarea class='forbiginput' id='text"+n+"'>доказательство:</textarea></div>"
 			} else if (selectedvariant == 2) {
-				newelement.innerHTML = "<div class='image' id='"+n+"'>image||please,write a link for image<textarea class='forbiginput' id='text"+n+"'></textarea></div>"
+				newelement.innerHTML = "<div class='image' id='"+n+"'>image||please,write a link for image<textarea class='forbiginput' id='text"+n+"'>https://</textarea></div>"
 			}
 			document.getElementById("all").append(newelement);
 			n++;
 		}
+		let thiss="";
+		/* sheet started
+		function improveticket() {
+			let lengthofthiss = 0
+			for (let i = 1; i<n; i++) {
+				thiss = document.getElementById(i);
+				if (thiss.className == "definition") {
+					thiss = document.getElementById(`text${i}`).value;
+					thiss = thiss + "^_#_";
+					lengthofthiss = thiss.match("^").length;
+					for (let nm = 0; nm < lengthofthiss; nm++) {
+						thiss = thiss.replace("^", "<<i></i>sup>");
+						thiss = thiss.replace("_", "<<i></i>/sup>");
+					}
+					lengthofthiss = thiss.match("#").length;
+					for (let nm = 0; nm < lengthofthiss; nm++) {
+						thiss = thiss.replace("#", "<<i></i>sub>");
+						thiss = thiss.replace("_", "<<i></i>/sub>");
+					}
+					document.getElementById(`text${i}`).value = thiss;
+				} else if (thiss.className == "theorema") {
+					thiss = document.getElementById(`name${i}`).value;
+					thiss = thiss + "^_#_";
+					lengthofthiss = thiss.match("^").length;
+
+					for (let nm = 0; nm < lengthofthiss; nm++) {
+						thiss = thiss.replace("^", "<<i></i>sup>");
+						thiss = thiss.replace("_", "<<i></i>/sup>");
+					}
+					lengthofthiss = thiss.match("#").length;
+					for (let nm = 0; nm < lengthofthiss; nm++) {
+						thiss = thiss.replace("#", "<<i></i>sub>");
+						thiss = thiss.replace("_", "<<i></i>/sub>");
+					}
+					document.getElementById(`name${i}`).value = thiss;
+					thiss = document.getElementById(`text${i}`).value;
+					thiss = thiss + "^_#_";
+					lengthofthiss = thiss.match("^").length;
+					for (let nm = 0; nm < lengthofthiss; nm++) {
+						thiss = thiss.replace("^", "<<i></i>sup>");
+						thiss = thiss.replace("_", "<<i></i>/sup>");
+					}
+					lengthofthiss = thiss.match("#").length;
+					for (let nm = 0; nm < lengthofthiss; nm++) {
+						thiss = thiss.replace("#", "<<i></i>sub>");
+						thiss = thiss.replace("_", "<<i></i>/sub>");
+					}
+					document.getElementById(`text${i}`).value = thiss;
+				}
+			}	
+		} sheet ended*/
+		function upgradesome(ticket){
+			ticket+="^#__";
+			let k = 0
+			len=ticket.match("#").length+999;
+			for (k = 0; k<=len; k++){
+				ticket = ticket.replace("#", "<<i></i>sub>");
+
+			}
+			len=ticket.match("_").length+999;
+			for (k = 0; k<=len; k++){
+				ticket = ticket.replace("_", "<<i></i>/sub><<i></i>/sup>");
+
+			}
+			fuckthis=ticket.match("^");
+			len=fuckthis.length+999;
+
+			for (k = 0; k<=len; k++){
+				ticket = ticket.replace("^", "<<i></i>sup>");
+
+
+			}
+
+			return ticket;
+		}
 		let ticket = "";
 		function generateticket() {
 			ticket = "";
+
 			document.getElementById("generate").className = "getticketafter";
 			let thiss="";
 			for (let i = 1; i<n; i++) {
 				thiss = document.getElementById(i);
-				if (thiss.className == "definition" || thiss.className == "theorema") {
-					ticket = ticket + "<<i></i>div class='definition'>"+ document.getElementById(`text${i}`).value+"<<i></i>/div>";
+				if (thiss.className == "definition") {
+					ticket = ticket + "<<i></i>div class='definition'><<i></i>b>"+ document.getElementById(`text${i}`).value+"<<i></i>/b><<i></i>/div>";
+			
+				} if (thiss.className == "theorema") {
+					ticket = ticket + "<<i></i>div class='definition'><<i></i>b>"+document.getElementById(`name${i}`).value + "<<i></i>/b><<i></i>br>" + document.getElementById(`text${i}`).value+"<<i></i>/div>";
 			
 				} else if (thiss.className == "image") {
 					ticket = ticket + "<<i></i>img class='big' src='"+ document.getElementById(`text${i}`).value+"'>";
 			
 				}
 			}
-			document.getElementById("end").innerHTML = ticket;
+			document.getElementById("end").innerHTML = upgradesome(ticket);
 		}
 	</script>
 </body>
