@@ -1,0 +1,23 @@
+		.ticketheader{
+		width: 90%;
+		
+		font-size: 22px;
+		padding: 10px;
+		padding-top: 3px;
+		text-align: center;
+		border-bottom: 2px solid #789;
+		background-color: #dbedfe;
+		padding-left: 5%;
+		padding-right: 5%;
+		}
+		.definition {
+		color: black;
+		border: 3px solid blue;
+		margin-bottom: 3px;
+		border-radius: 10px;
+		padding: 4px;
+		}
+		b{
+		color: #003;
+		background-color: #acf
+		}
