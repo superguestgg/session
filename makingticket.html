@@ -4,7 +4,31 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="https://lh3.google.com/u/0/d/1zRPozZqnOPbPmgr1sv0Lpi4W9TNtmXMG=w1920-h867-iv1" type="image/png">
+	<link rel="stylesheet" href="https://superguestgg.github.io/session/forsession.css" media="all">
 	<style type="text/css">
+		body{
+		background-color: #bdb;
+		}
+		a{
+		text-decoration: none;
+		font-size: 25px;
+		color: #004;
+		border: 2px solid #789;
+		border-radius: 10px;
+		padding: 5px;
+		margin-top: 100px; 
+		}
+		a:hover{
+		text-decoration: underline;
+		font-size: 25px;
+		color: #000;
+		border: 2px solid #789;
+		border-radius: 10px;
+		padding: 5px;
+		margin-top: 100px; 
+
+		}
+
 		.all{
 		border: 5px double #789;
 		border-radius: 15px;
@@ -28,7 +52,7 @@
 		.menuadd{
 		width: 30%;
 		right: 0px;
-		background-image: linear-gradient(to top left, #ddd, #ccc);
+		background-image: linear-gradient(to top, #aca, #dfd);
 		border-left: 3px solid #789;
 		color: #123;
 		position: fixed;
@@ -40,9 +64,10 @@
 		width: 80%;
 		margin-left: 5%;
 		padding: 10px;
-		background-color: #ace;
+		background-color: #9b9;
 		border-radius: 15px;
 		border: 3px solid black;
+		box-shadow: 5px 5px 5px #000;
 		}
 		.end{
 		border: 3px solid black;
@@ -81,26 +106,67 @@
 		box-shadow: 0 0 10px #000;
 		transition: 0.3s ease-out;
 		}
-		.definition{
+		.definition2{
 		width: 90%;
 		border-radius: 0px 100px 100px 0px;
 		border: 2px solid #222;
 		background-color: #8f8;
 		padding: 5px;
 		}
-		.image{
+		.image2{
 		border-radius: 0px 100px 100px 0px;
 		border: 2px solid #222;
 		width: 90%;
 		background-color: #f88;
 		padding: 5px;
 		}
-		.theorema{
+		.theorema2{
 		width: 90%;
 		border-radius: 0px 100px 100px 0px;
 		border: 2px solid #222;
 		background-color: #88f;
 		padding: 5px;
+		}
+		.previewwhennotshow{
+		position: fixed;
+		right: 20px;
+		bottom: 20px;
+		top: calc(100% - 60px);
+		left: 70%;
+		border-radius: 10px;
+		border: 4px solid #363;
+		background-color: #bdb;
+		color: #000;
+		z-index: 100;
+		padding: 5px;
+		transition: 0.5s linear;
+		}
+		.previewwhenshow{
+		position: fixed;
+		top: 20px;
+		left: 20px;
+		right: 20px;
+		bottom: 20px;
+		border-radius: 20px;
+		border: 4px solid #363;
+		background-color: #bdb;
+		color: #fff;
+		z-index: 100;
+		padding: 10px;
+		overflow-y: scroll;
+		transition: 0.5s linear;
+		}
+		.closepreviewwhenshow{
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		background-color: #000;
+		opacity: 0.5;
+		z-index: 50;
+		transition: 1s ease-out;
+
 		}
 	</style>
 	<title>makingticket</title>
@@ -111,12 +177,14 @@
 		<input type="radio" id="v1" value="the" name="input" checked>теорема<br>
 		<input type="radio" id="v2" value="img" name="input">картинка<br>
 		<div class="makerbutton" onclick="makeelement()">создать элемент</div>
+		<div id="preview" class="previewwhennotshow" onclick="getpreview()">предпросмотр</div>
 		<div class="end" id="end"></div>
+		<div id="closepreview" onclick='document.getElementById("preview").className="previewwhennotshow";document.getElementById("closepreview").className=null;document.getElementById("preview").innerHTML="предпросмотр";'></div>
 	</p></div>
 
 
 
-	<div class="all"><h2> название билета</h2><input type="text" id="name"></div>
+	<div class="all"><a href="https://superguestgg.github.io/session" target="_blank">go to session</a><h2> название билета</h2><input type="text" id="name"></div>
 
 	<div class="all" id="all"></div>
 	<div class="getticket" onclick="generateticket()" id="generate">сгенерировать сайт</div>
@@ -137,11 +205,11 @@
 			}
 			newelement = document.createElement("p");
 			if (selectedvariant == 0) {
-				newelement.innerHTML = "<div class='definition' id='"+n+"'>definition<textarea class='forbiginput'id='text"+n+"'>определение</textarea></div>"
+				newelement.innerHTML = "<div class='definition2' id='"+n+"'>definition<textarea class='forbiginput'id='text"+n+"'>определение</textarea></div>"
 			} else if (selectedvariant == 1) {
-				newelement.innerHTML = "<div class='theorema' id='"+n+"'>theorema<textarea class='forbiginput' id='name"+n+"'>место для названия</textarea> <textarea class='forbiginput' id='text"+n+"'>доказательство:</textarea></div>"
+				newelement.innerHTML = "<div class='theorema2' id='"+n+"'>theorema<textarea class='forbiginput' id='name"+n+"'>место для названия</textarea> <textarea class='forbiginput' id='text"+n+"'>доказательство:</textarea></div>"
 			} else if (selectedvariant == 2) {
-				newelement.innerHTML = "<div class='image' id='"+n+"'>image||please,write a link for image<textarea class='forbiginput' id='text"+n+"'>https://</textarea></div>"
+				newelement.innerHTML = "<div class='image2' id='"+n+"'>image||please,write a link for image<textarea class='forbiginput' id='text"+n+"'>https://</textarea></div>"
 			}
 			document.getElementById("all").append(newelement);
 			n++;
@@ -202,45 +270,62 @@
 			let k = 0
 			len=ticket.match("#").length+999;
 			for (k = 0; k<=len; k++){
-				ticket = ticket.replace("#", "<<i></i>sub>");
+				ticket = ticket.replace("#", "&lt;sub&gt;");
 
 			}
 			len=ticket.match("_").length+999;
 			for (k = 0; k<=len; k++){
-				ticket = ticket.replace("_", "<<i></i>/sub><<i></i>/sup>");
+				ticket = ticket.replace("_", "&lt;/sub&gt;&lt;/sup&gt;");
 
 			}
 			fuckthis=ticket.match("^");
 			len=fuckthis.length+999;
 
 			for (k = 0; k<=len; k++){
-				ticket = ticket.replace("^", "<<i></i>sup>");
+				ticket = ticket.replace("^", "&lt;sup&gt;");
 
 
 			}
 
 			return ticket;
 		}
+
 		let ticket = "";
 		function generateticket() {
 			ticket = "";
-
+			ticket=ticket+document.getElementById("name").value
 			document.getElementById("generate").className = "getticketafter";
 			let thiss="";
 			for (let i = 1; i<n; i++) {
 				thiss = document.getElementById(i);
-				if (thiss.className == "definition") {
-					ticket = ticket + "<<i></i>div class='definition'><<i></i>b>"+ document.getElementById(`text${i}`).value+"<<i></i>/b><<i></i>/div>";
+				if (thiss.className == "definition2") {
+					ticket = ticket + "&lt;div class='definition'&gt;&lt;b&gt;"+ document.getElementById(`text${i}`).value+"&lt;/b&gt;&lt;/div&gt;";
 			
-				} if (thiss.className == "theorema") {
-					ticket = ticket + "<<i></i>div class='definition'><<i></i>b>"+document.getElementById(`name${i}`).value + "<<i></i>/b><<i></i>br>" + document.getElementById(`text${i}`).value+"<<i></i>/div>";
+				} if (thiss.className == "theorema2") {
+					ticket = ticket + "&lt;div class='definition'&gt;&lt;b&gt;"+document.getElementById(`name${i}`).value + "&lt;/b&gt;"+ document.getElementById(`text${i}`).value+"&lt;/div&gt;";
 			
-				} else if (thiss.className == "image") {
+				} else if (thiss.className == "image2") {
 					ticket = ticket + "<<i></i>img class='big' src='"+ document.getElementById(`text${i}`).value+"'>";
 			
 				}
 			}
 			document.getElementById("end").innerHTML = upgradesome(ticket);
+		}
+	</script>
+	<script type="text/javascript">
+
+		function getpreview(){
+			generateticket();
+			for (let i = 0; i<=999; i++){
+				ticket=ticket.replace("&lt;", "<");
+				ticket=ticket.replace("&gt;", ">");
+
+
+			}
+			document.getElementById("preview").className="previewwhenshow";
+			document.getElementById("closepreview").className="closepreviewwhenshow";
+
+			document.getElementById("preview").innerHTML=ticket;
 		}
 	</script>
 </body>
