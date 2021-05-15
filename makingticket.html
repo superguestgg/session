@@ -286,7 +286,10 @@
 
 
 			}
-
+			for (k = 0; k<=999; k++){
+				ticket = ticket.replace("<", "&lt;");
+				ticket = ticket.replace(">", "&gt;");
+			}
 			return ticket;
 		}
 
@@ -313,7 +316,7 @@
 		}
 	</script>
 	<script type="text/javascript">
-
+		function upgradeticket(){}
 		function getpreview(){
 			generateticket();
 			for (let i = 0; i<=999; i++){
