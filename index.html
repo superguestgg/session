@@ -10,6 +10,24 @@
 		background-color: #cde;
 		color: #333;
 		}
+		a{
+		border-radius: 0 0 0 15px;
+		border: 2px solid #789;
+		color: #000;
+		text-decoration: none;
+		font-size: 15px;
+		position: fixed;
+		right: 0px;
+		top: 0px;
+		background-color: #ace;
+		height: 16px;
+		padding: 5px;
+		max-width: 25%;
+		overflow: hidden;
+		}
+		a:hover{
+		text-decoration: underline;
+		}
 		img{
 		align: center;
 		}
@@ -28,7 +46,7 @@
 		font-size: 18px;
 		border-radius: 100px;
 		}
-		option:{
+		option{
 		width: 50px;
 		}
 
@@ -100,7 +118,7 @@
 		}
 	</style>
 	<script type="text/javascript">
-		let massive=[["__ГЕОМЕТРИЯ: все билеты", "<button onclick='showalltickets(`geom`)'>показать все билеты</button>"],
+		let massive=[["&emsp;&emsp;&emsp;ГЕОМЕТРИЯ: все билеты&emsp;&emsp;", "<button onclick='showalltickets(`geom`)'>показать все билеты</button>"],
 		["1_геометрия: теорема о смежных углах. Равенство вертикальных углов","<div class='definition'><b>Определение.</b> Пусть C /∈ (AB) и лучи [OA) и [OB) — противоположные (т.е. O ∈]AB[ ), тогда углы ∠AOC и ∠BOC называются смежными. Следующий результат называется теоремой о смежных углах.</div>"+
 		"<div class='definition'><b>Теорема 4.4. Пусть ∠AOC и ∠BOC — смежные, а также ∠A1O1C1и ∠B1O1C1 — смежные. Если ∠AOC = ∠A1O1C1 , то ∠BOC = ∠B1O1C1. </b>"+"Доказательство. По аксиоме III.1 можно считать, что[OA] = [OB] = [OC] = [O1A1] = [O1B1] = [O1C1] (рис. 21).Тогда по 1КРТ получим, что △OAC = △O1A1C1 , откуда выполняются равенства: [AC] == [A1C1] , ∠OAC = ∠O1A1C1 .Применяя к отрезкам [AB] и[A1B1] аксиому III.3, получим[AB] = [A1B1] . Из 1КРТ теперь следует, что △BAC = △B1A1C1 ,откуда [BC] = [B1C1] и ∠ABC = ∠A1B1C1 . Осталось заметить, что в△OBC и △O1B1C1 выполняются равенства: [BO] = [B1O1] , [BC] = [B1C1]и ∠ABC = ∠A1B1C1 . По 1КРТ получаем, что △BOC = △B1O1C1 и ∠BOC = ∠B1O1C1.</div>"+"<img src='https://lh3.google.com/u/0/d/1qJtscAWb2cO5qLR9bRnGvl9espPX7f7i=w1920-h781-iv1' class='big' >"+"<div class='definition'><b>Определение. Пусть точка O лежит между A и B , а также между C иD ( C /∈ (AB) ), тогда углы ∠AOC и ∠BOD называются вертикальными.</b></div><div class='definition'><b> Следствие. Вертикальные углы между собой равны. </b><br>Доказательство. Вертикальные углы ∠AOC и ∠BOD смежны с одними тем же углом (например, с ∠AOD ), поэтому, по предыдущей теореме, равны между собой.</div>"],
 		["2_геометрия: теорема о сумме углов","доказательство"],
@@ -126,7 +144,7 @@
 		["22_геометрия: векторное уравнение прямой","доказательство"],
 		["23_геометрия: линейные множества","доказательство"],
 		["24_геометрия: векторное уравнение плоскости. координатное уравнение плоскости в произвольной системе еоординат","доказательство"],
-		["__АЛГЕБРА: все билеты","<button onclick='showalltickets(`alg`)'>показать все билеты</button>"],
+		["&emsp;&emsp;&emsp;АЛГЕБРА: все билеты&emsp;&emsp;&emsp;","<button onclick='showalltickets(`alg`)'>показать все билеты</button>"],
 		["1_алгебра: канонический вид многочлена","<div class='definition'><b>Определение.</b> Одночленом от x называется выражение ax<sup>n</sup>, где a ∈ R, n ∈ Z+. Степенью ax<sup>n</sup> называется число deg(ax<sup>n</sup>) = n, если а != 0 и 0, если а = 0.</div><div class='definition'><b>Определение.</b> Суммой одночленов ax<sup>n</sup> и bx<sup>m</sup> называется выражение ax<sup>n</sup>+bx<sup>m</sup>. Произведением называется abx<sup>n+m</sup></div><div class='definition'><b>Определение. Многочленом от x называется сумма конечного числа одночленов от x. </b>Многочлены будем обозначать через f, g, h и т. д.; R[x] — множество всех многочленов с действительными коэффициентами. Степенью f ∈ R[x] называется наибольшее число n ∈ Z+ (обозначаемое через deg(f)), обладающее двумя свойствами: в f есть слагаемые степени n и не равна нулю сумма всех слагаемых многочлена f, которые имеют степень n.</div><div class='definition'><b>Определение.</b><br> 1) ax<sup>0</sup> = a; <br> 2) 0x<sup>n</sup> = 0; <br> 3) Пусть a != 0 , тогда ax<sup>n</sup> = bx<sup>m</sup>, если a = b и n = m; <br>4) пусть f, g ∈ R[x]. Тогда f = g, если выполняются условия: а) deg(f) = deg(g) = n; б) ∀i ∈ {0, 1, . . . , n} сумма всех коэффициентов у многочленов степени i, которые входят в f, совпадает с аналогичной суммой для многочлена g. </div><div class='definition'><b>Определение.</b> Пусть f ∈ R[x] и deg(f) = n ∈ Z+. Каноническим представлением ненулевого многочлена f называется запись его в виде f = a<sub>n</sub>x<sup>n</sup>+a<sub>n−1</sub>x<sup>n−1</sup>+. . .+a<sub>1</sub>x+a<sub>0</sub>, где a<sub>n</sub> != 0, a<sub>n</sub> называется старшим коэффициентом f. Если f — нулевой многочлен, то f = 0 — его каноническое представление.</div>"],
 		["2_алгебра: кольцо многочленов от 1й переменной","доказательство"],
 		["3_алгебра: деление многочлена с остатком","доказательство"],
@@ -172,12 +190,13 @@
 		<select size="1" id="select" onchange="changeticket()">
 			<option>если вы видите этот текст значит на вашем компьютере возникла ошибка</option>
 		</select>
+		<a href="https://superguestgg.github.io/session/makingticket.html" target="_blank">||создание билетов</a>
 	</div>
 	<script>
 		let k = (massive.length);
 		let options = ""
 		for (let i = 0; i < k; i++) {
-			options=options+`<option value="`+i+`">${massive[i][0]}</option>`
+			options=options+`<option value="`+i+`" id="222">${massive[i][0]}</option>`
 		}
 		document.getElementById("select").innerHTML = options
 		function changeticket() {
@@ -192,6 +211,7 @@
 
 			document.getElementById("all").innerHTML = changethis;
 		}
+		document.getElementById("222").style="width: 200px;"
 	</script>
 	<div class="all" id="all"><div class="ticketheader">привет!!!</div>
 		<p>сначала выбери билет</p>
