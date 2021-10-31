@@ -208,11 +208,11 @@
 			}
 			newelement = document.createElement("p");
 			if (selectedvariant == 0) {
-				newelement.innerHTML = "<div class='definition2' id='"+n+"'>definition<textarea class='forbiginput'id='text"+n+"'>определение</textarea></div>"
+				newelement.innerHTML = "<div class='definition2' id='"+n+"' name='definition'>определение<textarea class='forbiginput'id='text"+n+"'>определение</textarea></div>"
 			} else if (selectedvariant == 1) {
-				newelement.innerHTML = "<div class='theorema2' id='"+n+"'>theorema<textarea class='forbiginput' id='name"+n+"'>место для названия</textarea> <textarea class='forbiginput' id='text"+n+"'>доказательство:</textarea></div>"
+				newelement.innerHTML = "<div class='theorema2' id='"+n+"' name='theorema'>теорема<textarea class='forbiginput' id='name"+n+"'>место для названия</textarea> <textarea class='forbiginput' id='text"+n+"'>доказательство:</textarea></div>"
 			} else if (selectedvariant == 2) {
-				newelement.innerHTML = "<div class='image2' id='"+n+"'>image||please,write a link for image<textarea class='forbiginput' id='text"+n+"'>https://</textarea></div>"
+				newelement.innerHTML = "<div class='image2' id='"+n+"' name='image'>картинка||ссылка на картинку<textarea class='forbiginput' id='text"+n+"'>https://</textarea></div>"
 			}
 			document.getElementById("all").append(newelement);
 			n++;
